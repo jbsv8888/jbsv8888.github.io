@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confession to My Crush</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        .confession-box {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+            border: 2px solid #ccc;
+        }
+
+        .confession-box h2 {
+            color: #333;
+        }
+
+        .message-box {
+            width: 100%;
+            height: 100px;
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            display: block;
+        }
+
+        .submit-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .submit-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .reveal-message-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #f0ad4e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="confession-box">
+        <h2>Hi Sam!</h2>
+        <p>Meron ako sasabihin sa'yo, click mo below para makita mo</p>
+        <button class="reveal-message-btn" id="revealBtn" onclick="revealMessage()">Click to Read My Confession</button>
+        
+        <div id="messageSection" style="display: none;">
+            <p>Hi samie,unang-una sa lahat thank you clinick mo 'tong link. Kumusta? Gusto ko lamang sabihin sa'yo na hanggang ngayon ay may feelings parin ako for you. 'Di ko maipaliwanag kung bakit pero nagsimula ito nung napapaginipan kita. Actually palagi, pero ngayon lang ako nag decide to make a move. Siguro napapansin mo mga pagpaparinig ko sa ig; mapa notes o story. Siguro ay alam mo na rin na ikaw yung "8" sa mga notes ko. Nagiging delulu na rin ako dahil sa mga nakikia kong notes mo sa reels hahahaha pero forsure di ako yon pero malay natin diba? Dahil sa'yo nabuhay ulit yung ig acc na 'yon which is good kase Malaya ko naeexpress sarili ko thru stories/notes. Marami pa ako gustong sabihin sa'yo pero sa ngayon eto na lang muna kasi baka tamadin ka magbasa hahahahahaha. IF na-aawkwardan ka sa ganito, please lemme know. If you seen this, I want you to have a message for me(message ka pls). Kung ano reaction mo after nabasa 'to o ano mang gusto mong sabihin. Para na rin malaman ko kung nabasa mo ba ito o hindi.Thank you samsam ps. baguhan pa lang ako pagpasensyahan mo na</p>
+            <!-- Updated form to send messages to your email -->
+            <form action="https://formspree.io/f/mwplevne" method="POST">
+                <textarea class="message-box" name="message" id="message" placeholder="Write your message here..." oninput="checkMessage()"></textarea>
+                <br>
+                <button class="submit-btn" id="submitBtn" disabled type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const revealButton = document.getElementById('revealBtn');
+        const messageSection = document.getElementById('messageSection');
+        const messageInput = document.getElementById('message');
+        const submitButton = document.getElementById('submitBtn');
+
+        // Function to reveal the message section after the confession is clicked
+        function revealMessage() {
+            revealButton.style.display = 'none'; // Hide the reveal button
+            messageSection.style.display = 'block'; // Show the message section
+        }
+
+        // Function to check if the message box is empty
+        function checkMessage() {
+            if (messageInput.value.trim() !== '') {
+                submitButton.disabled = false;
+            } else {
+                submitButton.disabled = true;
+            }
+        }
+    </script>
+
+</body>
+</html>
